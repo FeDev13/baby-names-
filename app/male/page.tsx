@@ -34,7 +34,7 @@ export default function MaleNames() {
   return (
     <div className='flex flex-col items-center justify-center'>
         <div className='flex'>
-            <h1 className='text-4xl mt-2'>Nombres de jedi</h1>
+            <h1 className='text-4xl mt-2 text-center'>Nombres de jedi</h1>
             <GiLightSabers className='text-4xl mx-4 mt-2' />
         </div>
       

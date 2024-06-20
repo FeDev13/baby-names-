@@ -35,7 +35,7 @@ export default function FemaleNames() {
   return (
     <div className='flex flex-col items-center justify-center'>
         <div className='flex'>
-            <h1 className='text-4xl mt-2'>Nombres de princesa</h1>
+            <h1 className='text-4xl mt-2 text-center'>Nombres de princesa</h1>
             <FaRebel className='text-5xl mx-6' />
         </div>
       
