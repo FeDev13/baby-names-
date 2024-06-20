@@ -32,8 +32,8 @@ export default function Home() {
         queremos que de alguna manera nos acompañes en la eleccion del nombre de
         nuestro bebe. Debajo podes hacer click en cada simbolo de nene/nena, que
         te va a llevar a una lista de nombres para que elijas cual te gusta.
-        Solamente se vota una vez y un solo nombre, por favor no votar mas de
-        una vez. 
+        Podes votar tanto nombre de nena y de nene pero no podes elegir mas de un nombre por sexo 
+        y al nombre elegido solamente un solo voto.
         PD: Marco, no hackees esto!!! 
       </p>
       <div className="grid grid-cols-1 md:flex md:flex-row items-center mt-20 justify-around w-[55%]">
