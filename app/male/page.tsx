@@ -6,13 +6,14 @@ import { GiLightSabers } from 'react-icons/gi';
 import { FaStar } from 'react-icons/fa';
 import { FcLike } from 'react-icons/fc';
 import "../../styles/global.css"
-import { useRouter } from 'next/navigation';
+import { useGoHome } from '../../hooks/useGoHome';
 
 
 export default function MaleNames() {
-  const router = useRouter();
-  const goHome = () => router.push('/');
+  
+  
   const [names, setNames] = useState<Name[]>([]);
+  const goHome = useGoHome();
 
   useEffect(() => {
     async function loadNames() {

@@ -3,6 +3,9 @@
 import { useRouter } from "next/navigation";
 import { GiBabyBottle } from "react-icons/gi";
 import { TbGenderFemale, TbGenderMale } from "react-icons/tb";
+import Image from "next/image";
+import darth from "../public/darth.png";
+
 
 export default function Home() {
   const router = useRouter();
@@ -33,7 +36,7 @@ export default function Home() {
         nuestro bebe. Debajo podes hacer click en cada simbolo de nene/nena, que
         te va a llevar a una lista de nombres para que elijas cual te gusta.
         Podes votar tanto nombre de nena y de nene pero no podes elegir mas de un nombre por sexo 
-        y al nombre elegido solamente un solo voto.
+        y al nombre elegido solamente va un solo voto.
         PD: Marco, no hackees esto!!! 
       </p>
       <div className="grid grid-cols-1 md:flex md:flex-row items-center mt-20 justify-around w-[55%]">
@@ -46,8 +49,12 @@ export default function Home() {
         <button onClick={goToMaleNames} className="  mx-auto transform transition duration-300 hover:scale-110 h-20 w-20">
           <TbGenderMale size={100} className=" text-blue-500" />
         </button>
-        <button className='rounded-md p-4 text-black bg-yellow-400 mt-10'onClick={goToRankings}>Ver ranking</button>
+        <button className='rounded-md p-4 text-black bg-yellow-400 my-10'onClick={goToRankings}>Ver ranking</button>
       </div>
+      <footer className="flex">
+        <p className="mt-5">Sitio web creado por el padre</p>
+        <Image src={darth} alt="darth vader"/>
+      </footer>
     </div>
   );
 }

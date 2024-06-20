@@ -2,8 +2,7 @@
 import { useState, useEffect } from "react";
 import { FaStar } from "react-icons/fa";
 import { fetchNames } from "@/utils/nameUtils";
-import { useRouter } from "next/navigation";
-
+import { useGoHome } from "../../hooks/useGoHome";
 
 interface Name {
   _id: string;
@@ -13,9 +12,10 @@ interface Name {
 }
 
 export default function RankingPage() {
-  const router = useRouter();
+  
   const [names, setNames] = useState<Name[]>([]);
-  const goHome = () => router.push("/");
+  const goHome = useGoHome();
+  
   useEffect(() => {
     async function loadNames() {
       const fetchedNames = await fetchNames();
@@ -27,7 +27,7 @@ export default function RankingPage() {
 
   return (
     <div className="flex flex-col items-center justify-center">
-      <h1 className="text-4xl mb-4 mt-2">Ranking de Nombres</h1>
+      <h1 className="text-4xl mb-4 mt-2 text-center">Ranking de Nombres</h1>
       <button className='rounded-md p-4 text-black bg-yellow-400'onClick={goHome}>Regresar</button>
       <div className="grid grid-cols-1">
         {names.map((name) => (

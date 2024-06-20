@@ -1,16 +1,17 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
 import { fetchNames, rateName, Name } from '../../utils/nameUtils';
 import { FaStar } from 'react-icons/fa';
 import { FcLike } from 'react-icons/fc';
 import { FaRebel } from 'react-icons/fa';
+import { useGoHome } from '../../hooks/useGoHome';
 import "../../styles/global.css";
 
 export default function FemaleNames() {
-  const router = useRouter();
+  
   const [names, setNames] = useState<Name[]>([]);
+  const goHome = useGoHome();
 
   useEffect(() => {
     async function loadNames() {
@@ -29,9 +30,7 @@ export default function FemaleNames() {
     setNames(femaleNames);
   };
 
-  const goHome = () => {
-    router.push('/'); 
-  }
+  
   return (
     <div className='flex flex-col items-center justify-center'>
         <div className='flex'>
