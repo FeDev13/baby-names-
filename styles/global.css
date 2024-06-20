@@ -18,3 +18,9 @@ body {
 h1,p,button {
   font-family: "Star Wars", sans-serif !important;
 }
+button{
+  background-color: yellow;
+}
+#card{
+  border: yellow solid 2px;
+}

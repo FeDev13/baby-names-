@@ -41,15 +41,15 @@ export default function Home() {
       </p>
       <div className="grid grid-cols-1 md:flex md:flex-row items-center mt-20 justify-around w-[55%]">
         <button
-          className=" mx-auto transform transition duration-300 hover:scale-110 h-20 w-20 my-10"
+          className=" mx-auto transform transition duration-300 hover:scale-110 h-20 w-20 my-10 bg-transparent"
           onClick={goToFemaleNames}
         >
           <TbGenderFemale size={100} className=" text-pink-500 " />
         </button>
-        <button onClick={goToMaleNames} className="  mx-auto transform transition duration-300 hover:scale-110 h-20 w-20">
+        <button onClick={goToMaleNames} className="  mx-auto transform transition duration-300 hover:scale-110 h-20 w-20 bg-transparent">
           <TbGenderMale size={100} className=" text-blue-500" />
         </button>
-        <button className='rounded-md p-4 text-black bg-yellow-400 my-10'onClick={goToRankings}>Ver ranking</button>
+        <button className='rounded-md p-4 text-black my-10'onClick={goToRankings}>Ver ranking</button>
       </div>
       <footer className="flex">
         <p className="mt-5">Sitio web creado por el padre</p>

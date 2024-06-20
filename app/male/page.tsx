@@ -46,11 +46,11 @@ export default function MaleNames() {
             {name.name} <FaStar className='text-xl text-yellow-400 ml-10 mr-2' /> {name.rating}
             </div>
             
-            <button className='mt-6' onClick={() => handleRate(name._id, 1)}><FcLike className='text-3xl' /></button>
+            <button className='mt-6 bg-transparent' onClick={() => handleRate(name._id, 1)}><FcLike className='text-3xl' /></button>
           </div>
         ))}
       </div>
-      <button className='rounded-md p-4 text-black bg-yellow-400'onClick={goHome}>Regresar</button>
+      <button className='rounded-md p-4 text-black'onClick={goHome}>Regresar</button>
     </div>
   );
 }

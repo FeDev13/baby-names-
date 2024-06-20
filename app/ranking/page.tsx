@@ -28,12 +28,13 @@ export default function RankingPage() {
   return (
     <div className="flex flex-col items-center justify-center">
       <h1 className="text-4xl mb-4 mt-2 text-center">Ranking de Nombres</h1>
-      <button className='rounded-md p-4 text-black bg-yellow-400'onClick={goHome}>Regresar</button>
+      <button className='rounded-md p-4 text-black 'onClick={goHome}>Regresar</button>
       <div className="grid grid-cols-1">
         {names.map((name) => (
           <div
-            className="flex flex-col items-center justify-center bg-black border-2 border-yellow-400 p-4 rounded-lg m-4 w-[200px] transform transition duration-300 hover:scale-105"
+            className="flex flex-col items-center justify-center bg-black p-4 rounded-lg m-4 w-[200px] transform transition duration-300 hover:scale-105"
             key={name._id}
+            id="card"
           >
             <div className="flex items-center justify-center">
               {name.name}{" "}
