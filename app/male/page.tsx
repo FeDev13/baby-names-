@@ -42,13 +42,25 @@ export default function MaleNames() {
   }
 
   const handleRate = async (id: string, rating: number) => {
+    const votedNames = JSON.parse(localStorage.getItem('votedNames') || '[]');
+  
+    if (votedNames.includes(id)) {
+      toast.error('Ya votaste por este nombre!.');
+      return;
+    }
+  
     try {
       await rateName(id, rating);
       const updatedNames = await fetchNames();
       setNames(updatedNames.filter(name => name.gender === 'male'));
+  
+      
+      votedNames.push(id);
+      localStorage.setItem('votedNames', JSON.stringify(votedNames));
+  
       toast.success('Gracias por tu voto!');
     } catch (error) {
-      toast.error('Failed to submit your vote.');
+      toast.error('error en tu voto.');
     }
   };
 
