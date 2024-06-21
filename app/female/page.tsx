@@ -6,28 +6,48 @@ import { FaStar } from 'react-icons/fa';
 import { FcLike } from 'react-icons/fc';
 import { FaRebel } from 'react-icons/fa';
 import { useGoHome } from '../../hooks/useGoHome';
+import { ClipLoader } from 'react-spinners';
+import { toast } from 'react-toastify';
 import "../../styles/global.css";
 
 export default function FemaleNames() {
   
   const [names, setNames] = useState<Name[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+
   const goHome = useGoHome();
 
   useEffect(() => {
     async function loadNames() {
-      const names = await fetchNames();
-      
-      const femaleNames = names.filter(name => name.gender === 'female');
-      setNames(femaleNames);
+      try {
+        const fetchedNames = await fetchNames();
+        const femaleNames = fetchedNames.filter(name => name.gender === 'female');
+        setNames(femaleNames);
+      } catch (error) {
+        console.error('Error en la base de datos:', error);
+      } finally {
+        setLoading(false);
+      }
     }
     loadNames();
   }, []);
 
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <ClipLoader color="#f9f600" size={50} />
+      </div>
+    );
+  }
   const handleRate = async (id: string, rating: number) => {
-    await rateName(id, rating);
-    const updatedNames = await fetchNames();
-    const femaleNames = updatedNames.filter(name => name.gender === 'female');
-    setNames(femaleNames);
+    try {
+      await rateName(id, rating);
+      const updatedNames = await fetchNames();
+      setNames(updatedNames.filter(name => name.gender === 'female'));
+      toast.success('Gracias por tu voto!');
+    } catch (error) {
+      toast.error('Failed to submit your vote.');
+    }
   };
 
   

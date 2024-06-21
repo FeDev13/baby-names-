@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { FaStar } from "react-icons/fa";
 import { fetchNames } from "@/utils/nameUtils";
 import { useGoHome } from "../../hooks/useGoHome";
+import { ClipLoader } from "react-spinners";
 
 interface Name {
   _id: string;
@@ -14,16 +15,31 @@ interface Name {
 export default function RankingPage() {
   
   const [names, setNames] = useState<Name[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
   const goHome = useGoHome();
   
   useEffect(() => {
     async function loadNames() {
-      const fetchedNames = await fetchNames();
-      const sortedNames = fetchedNames.sort((a, b) => b.rating - a.rating);
+      try {
+        const fetchedNames = await fetchNames();
+        const sortedNames = fetchedNames.sort((a, b) => b.rating - a.rating);
       setNames(sortedNames);
+      } catch (error) {
+        console.error('Error al traer nombres:', error);
+      } finally {
+        setLoading(false);
+      }
     }
     loadNames();
   }, []);
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <ClipLoader color="#f9f600" size={50} />
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col items-center justify-center">
