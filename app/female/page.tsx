@@ -74,7 +74,7 @@ export default function FemaleNames() {
       
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4'>
         {names.map((name) => (
-          <div className='flex flex-col items-center justify-center border-2 border-yellow-400 p-4 rounded-lg m-4 w-[200px] transform transition duration-300 hover:scale-105' key={name._id}>
+          <div id='card' className='flex flex-col items-center justify-center p-4 rounded-lg m-4 w-[200px] transform transition duration-300 hover:scale-105' key={name._id}>
             <div className='flex items-center justify-center'>
             {name.name} <FaStar className='text-xl text-yellow-400 ml-10 mr-2' /> {name.rating}
             </div>

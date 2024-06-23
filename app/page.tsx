@@ -21,12 +21,19 @@ export default function Home() {
   const goToRankings = () => {
     router.push("/ranking");
   };
+  const goToMessage = () => {
+    router.push("/board");
+  };
+
+  const goToBoard = () => {
+    router.push("/postings");
+  };
 
   return (
     <div className="flex flex-col items-center justify-center">
       <div className="flex flex-row items-center justify-center mt-10">
         <GiBabyBottle className="w-10 h-10 text-2xl" />
-        <h1 className="text-4xl mx-4 text-center">Ranking de nombres para Lenteja</h1>
+        <h1 className="text-4xl mx-4 text-center">Ranking de nombres para &quot;Lenteja&quot;</h1>
         <GiBabyBottle className="w-10 h-10 text-2xl" />
       </div>
       <p className="mx-2 w-[80%] text-md font-thin mt-9 mb-2 border-2 border-yellow-400 rounded-lg p-4">
@@ -39,7 +46,7 @@ export default function Home() {
         y al nombre elegido solamente va un solo voto.
         PD: Marco, no hackees esto!!! 
       </p>
-      <div className="grid grid-cols-1 md:flex md:flex-row items-center mt-20 justify-around w-[55%]">
+      <div className="grid grid-cols-1 lg:flex lg:flex-row items-center mt-20 justify-around w-[75%]">
         <button
           className=" mx-auto transform transition duration-300 hover:scale-110 h-20 w-20 my-10 bg-transparent"
           onClick={goToFemaleNames}
@@ -49,7 +56,9 @@ export default function Home() {
         <button onClick={goToMaleNames} className="  mx-auto transform transition duration-300 hover:scale-110 h-20 w-20 bg-transparent">
           <TbGenderMale size={100} className=" text-blue-500" />
         </button>
-        <button className='rounded-md p-4 text-black my-10'onClick={goToRankings}>Ver ranking</button>
+        <button className='rounded-md p-4 text-black my-10 mx-8'onClick={goToRankings}>Ver ranking</button>
+        <button className='rounded-md p-4 text-black my-10 mx-8'onClick={goToMessage}>Dejanos tu mensaje</button>
+        <button className='rounded-md p-4 text-black my-10 mx-8'onClick={goToBoard}>Muro de mensajes</button>
       </div>
       <footer className="flex">
         <p className="mt-5">Sitio web creado por el padre</p>
